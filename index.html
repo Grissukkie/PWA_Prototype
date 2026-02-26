@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0c0f" />
+  <meta name="description" content="Survive. Escape. Hunt." />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <title>BiHunters — Dashboard</title>
+</head>
+<body>
+
+  <!-- Background layers -->
+  <div class="bg-sky"></div>
+  <div class="bg-fog fog-1"></div>
+  <div class="bg-fog fog-2"></div>
+  <div class="bg-treeline"></div>
+  <div class="bg-vignette"></div>
+  <div class="stars" id="stars"></div>
+
+  <!-- =====================
+       DASHBOARD SCREEN
+       ===================== -->
+  <div class="screen active" id="screen-dashboard">
+
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="logo">Bi<span>Hunters</span></span>
+        <span class="topbar-divider">|</span>
+        <span class="topbar-label">LOBBY BROWSER</span>
+      </div>
+      <div class="topbar-right">
+        <div class="live-dot"></div>
+        <span class="live-label" id="online-count">-- ONLINE</span>
+        <button class="icon-btn" id="refresh-btn" title="Refresh" onclick="refreshParties()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="filter-bar">
+      <div class="search-wrap">
+        <svg class="search-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" class="search-input" placeholder="SEARCH HOST OR MAP..." id="search-input" oninput="applyFilters()" />
+      </div>
+      <div class="filter-pills">
+        <button class="pill active" data-filter="all"     onclick="setFilter(this,'all')">ALL</button>
+        <button class="pill"        data-filter="waiting" onclick="setFilter(this,'waiting')">WAITING</button>
+        <button class="pill"        data-filter="in-game" onclick="setFilter(this,'in-game')">IN-GAME</button>
+        <button class="pill"        data-filter="full"    onclick="setFilter(this,'full')">FULL</button>
+      </div>
+      <span class="party-count" id="party-count">0 LOBBIES</span>
+    </div>
+
+    <main class="party-grid-wrapper">
+      <div class="party-grid" id="party-grid"></div>
+      <div class="empty-state" id="empty-state" style="display:none;">
+        <span class="empty-icon">◈</span>
+        <p>NO LOBBIES FOUND</p>
+        <small>Try a different filter or refresh</small>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- =====================
+       PARTY DETAIL MODAL
+       ===================== -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModal()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-header">
+        <div class="modal-map-badge" id="modal-map-badge"></div>
+        <div class="modal-header-text">
+          <div class="modal-title" id="modal-title"></div>
+          <div class="modal-host"  id="modal-host"></div>
+        </div>
+        <div class="modal-status-badge" id="modal-status-badge"></div>
+      </div>
+      <div class="modal-slots"  id="modal-slots"></div>
+      <div class="modal-meta"   id="modal-meta"></div>
+      <button class="nav-btn primary-action full-width" id="modal-join-btn">JOIN PARTY</button>
+    </div>
+  </div>
+
+
+  <!-- =====================
+       SCRIPTS
+       ===================== -->
+  <script>
+    /* ---------- DATA ---------- */
+    const MAPS = [
+      'ABANDONED FACILITY','INDUSTRIAL COMPLEX',
+      'PINE FOREST OUTPOST','MILITARY BASE',
+      'UNDERGROUND LAB','RIVERSIDE WAREHOUSE'
+    ];
+    const STATUS_POOL = ['waiting','waiting','waiting','in-game','in-game','full'];
+
+    function randName() {
+      const p = ['Dark','Ghost','Night','Shadow','Steel','Iron','Void','Blood','Grim','Frost'];
+      const s = ['Hawk','Wolf','Shade','Reaper','Hunter','Stalker','Phantom','Raven','Scar','Echo'];
+      return p[Math.floor(Math.random()*p.length)] + s[Math.floor(Math.random()*s.length)];
+    }
+
+    function generateParties(n = 20) {
+      return Array.from({length: n}, (_, i) => {
+        const max = 5;
+        const status = STATUS_POOL[Math.floor(Math.random()*STATUS_POOL.length)];
+        const current = status === 'full' ? max
+          : status === 'in-game' ? max - Math.floor(Math.random()*2)
+          : 1 + Math.floor(Math.random()*(max-1));
+        return {
+          id: 'PTY' + String(1000+i).padStart(4,'0'),
+          host: randName(),
+          map: MAPS[Math.floor(Math.random()*MAPS.length)],
+          status, current, max,
+          ping: 18 + Math.floor(Math.random()*90),
+          slots: Array.from({length: max}, (_, j) => j < current ? randName() : null)
+        };
+      });
+    }
+
+    let allParties = generateParties();
+    let activeFilter = 'all';
+
+    /* ---------- RENDER ---------- */
+    const STATUS_LABELS = {waiting:'WAITING','in-game':'IN-GAME',full:'FULL'};
+
+    function renderCards(parties) {
+      const grid  = document.getElementById('party-grid');
+      const empty = document.getElementById('empty-state');
+      const count = document.getElementById('party-count');
+      count.textContent = parties.length + ' LOBBIE' + (parties.length !== 1 ? 'S' : '');
+      if (!parties.length) { grid.innerHTML = ''; empty.style.display = 'flex'; return; }
+      empty.style.display = 'none';
+      grid.innerHTML = parties.map((p, i) => {
+        const pips = p.slots.map((s, j) =>
+          `<div class="pip ${s ? 'filled' : ''} ${j===0 && s ? 'pip-hunter' : ''}"></div>`
+        ).join('');
+        const pingClass = p.ping < 50 ? 'ping-good' : p.ping < 80 ? 'ping-ok' : 'ping-bad';
+        return `
+        <div class="party-card status-${p.status}" style="animation-delay:${i*0.035}s" onclick="openModal('${p.id}')">
+          <div class="card-top">
+            <div class="card-status-indicator">
+              <span class="card-dot"></span>
+              <span class="card-status-lbl">${STATUS_LABELS[p.status]}</span>
+            </div>
+            <span class="card-ping ${pingClass}">${p.ping}ms</span>
+          </div>
+          <div class="card-host">${p.host}</div>
+          <div class="card-map">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            ${p.map}
+          </div>
+          <div class="card-footer">
+            <div class="pips-row">${pips}</div>
+            <span class="card-count">${p.current}<span class="count-max">/${p.max}</span></span>
+          </div>
+          <div class="card-shine"></div>
+        </div>`;
+      }).join('');
+    }
+
+    function applyFilters() {
+      const q = document.getElementById('search-input').value.toLowerCase();
+      let f = allParties;
+      if (activeFilter !== 'all') f = f.filter(p => p.status === activeFilter);
+      if (q) f = f.filter(p => p.host.toLowerCase().includes(q) || p.map.toLowerCase().includes(q));
+      renderCards(f);
+    }
+
+    function setFilter(el, filter) {
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      el.classList.add('active');
+      activeFilter = filter;
+      applyFilters();
+    }
+
+    function refreshParties() {
+      const btn = document.getElementById('refresh-btn');
+      btn.classList.add('spinning');
+      setTimeout(() => {
+        allParties = generateParties();
+        applyFilters();
+        btn.classList.remove('spinning');
+        document.getElementById('online-count').textContent =
+          (38 + Math.floor(Math.random()*70)) + ' ONLINE';
+      }, 700);
+    }
+
+    /* ---------- MODAL ---------- */
+    function openModal(id) {
+      const p = allParties.find(x => x.id === id);
+      if (!p) return;
+      document.getElementById('modal-map-badge').textContent =
+        p.map.split(' ').map(w=>w[0]).join('').slice(0,2);
+      document.getElementById('modal-title').textContent = p.id + ' — ' + p.host;
+      document.getElementById('modal-host').textContent  = p.map;
+      const sb = document.getElementById('modal-status-badge');
+      sb.textContent  = STATUS_LABELS[p.status];
+      sb.className    = 'modal-status-badge badge-' + p.status;
+      document.getElementById('modal-slots').innerHTML = p.slots.map((s, i) => `
+        <div class="modal-slot ${s ? 'occupied' : 'open'}">
+          <span class="slot-role">${i === 0 ? '⚔ HUNTER' : '● SURVIVOR ' + i}</span>
+          <span class="slot-player">${s || '— OPEN —'}</span>
+        </div>`).join('');
+      document.getElementById('modal-meta').innerHTML = `
+        <span>PING <b>${p.ping}ms</b></span>
+        <span>PLAYERS <b>${p.current}/${p.max}</b></span>`;
+      const btn = document.getElementById('modal-join-btn');
+      btn.textContent = p.status === 'full' ? 'LOBBY FULL' : 'JOIN PARTY';
+      btn.disabled    = p.status === 'full';
+      btn.style.opacity = p.status === 'full' ? '0.35' : '1';
+      document.getElementById('modal-overlay').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.remove('active');
+    }
+
+    /* ---------- NAVIGATION ---------- */
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    /* ---------- STARS ---------- */
+    const sc = document.getElementById('stars');
+    for (let i = 0; i < 130; i++) {
+      const s = document.createElement('span');
+      s.className = 'star';
+      s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*65}%;animation-delay:${(Math.random()*5).toFixed(2)}s;width:${Math.random()<.15?2:1}px;height:${Math.random()<.15?2:1}px`;
+      sc.appendChild(s);
+    }
+
+    /* ---------- INIT ---------- */
+    document.getElementById('online-count').textContent = (38 + Math.floor(Math.random()*70)) + ' ONLINE';
+    renderCards(allParties);
+  </script>
+
+  <script src="/js/app.js"></script>
+
+</body>
+</html>
