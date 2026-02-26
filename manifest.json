@@ -3,11 +3,18 @@
   "name": "BiHunters",
   "short_name": "BiHunters",
   "description": "Survive. Escape. Hunt.",
-  "start_url": "/index.html",
+  "start_url": "./index.html",
   "display": "fullscreen",
+  "display_override": ["window-controls-overlay", "fullscreen", "standalone"],
   "orientation": "landscape",
   "background_color": "#060709",
   "theme_color": "#c8a84b",
+  "protocol_handlers": [
+    {
+      "protocol": "web+bihunters",
+      "url": "./index.html?action=%s"
+    }
+  ],
   "icons": [
     {
       "src": "./icons/icon-192.png",
@@ -28,14 +35,14 @@
       "sizes": "1280x800",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "BiHunters Lobby Browser — Desktop"
+      "label": "BiHunters Lobby Browser - Desktop"
     },
     {
       "src": "./icons/screenshot-mobile.png",
       "sizes": "390x844",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "BiHunters Lobby Browser — Mobile"
+      "label": "BiHunters Lobby Browser - Mobile"
     }
   ]
 }
