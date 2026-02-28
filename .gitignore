@@ -1,5 +1,5 @@
 # API Keys — NEVER commit real keys
-js/api.config.js
+.env
 
 # OS files
 .DS_Store
