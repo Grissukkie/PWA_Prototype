@@ -5,16 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0a0c0f" />
   <meta name="description" content="Survive. Escape. Hunt." />
-  <link rel="manifest" href="/manifest.json" />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,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" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
   <title>BiHunters — Dashboard</title>
+  <style>
+    .api-screen-layout { padding: 80px 1.2rem 2rem; max-width: 960px; margin: 0 auto; }
+    .api-section-title { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:.12em; color:var(--gold,#c8a84b); border-bottom:1px solid rgba(200,168,75,.25); padding-bottom:.4rem; margin:1.4rem 0 .8rem; }
+    .api-loading { display:flex; align-items:center; gap:.7rem; color:#8a9aaa; font-family:'Share Tech Mono',monospace; font-size:.78rem; padding:1.2rem 0; }
+    .api-loading::before { content:''; width:14px; height:14px; border:2px solid rgba(200,168,75,.3); border-top-color:#c8a84b; border-radius:50%; animation:spin .8s linear infinite; flex-shrink:0; }
+    .api-error { background:rgba(192,56,56,.1); border:1px solid rgba(192,56,56,.3); border-radius:6px; padding:.8rem 1rem; color:#e07070; font-family:'Share Tech Mono',monospace; font-size:.78rem; }
+    .api-badge { display:inline-flex; align-items:center; gap:.3rem; font-family:'Share Tech Mono',monospace; font-size:.65rem; letter-spacing:.08em; padding:.2rem .5rem; border-radius:3px; margin-bottom:.6rem; }
+    .api-badge.free { background:rgba(76,175,110,.15); color:#4caf6e; border:1px solid rgba(76,175,110,.3); }
+    .api-badge.key  { background:rgba(200,168,75,.12); color:#c8a84b; border:1px solid rgba(200,168,75,.3); }
+    .api-badge .dot { width:6px; height:6px; border-radius:50%; background:currentColor; }
+    /* Countries */
+    .region-filter { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1rem; }
+    .region-btn { font-family:'Share Tech Mono',monospace; font-size:.68rem; letter-spacing:.07em; padding:.3rem .7rem; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); color:#8a9aaa; border-radius:3px; cursor:pointer; transition:all .2s; }
+    .region-btn.active,.region-btn:hover { background:rgba(200,168,75,.15); border-color:rgba(200,168,75,.4); color:#c8a84b; }
+    .countries-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:.7rem; }
+    .country-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07); border-radius:6px; padding:.8rem; cursor:pointer; transition:border-color .2s,transform .15s; position:relative; overflow:hidden; }
+    .country-card:hover { border-color:rgba(200,168,75,.4); transform:translateY(-1px); }
+    .country-flag { font-size:1.8rem; line-height:1; margin-bottom:.4rem; }
+    .country-name { font-family:'Bebas Neue',sans-serif; font-size:.95rem; letter-spacing:.08em; color:#eaeaea; margin-bottom:.25rem; }
+    .country-meta { font-family:'Share Tech Mono',monospace; font-size:.63rem; color:#6a7a8a; line-height:1.6; }
+    .country-meta span { color:#8a9aaa; }
+    .country-server-tag { position:absolute; top:.5rem; right:.5rem; font-family:'Share Tech Mono',monospace; font-size:.55rem; padding:.15rem .4rem; background:rgba(76,175,110,.15); border:1px solid rgba(76,175,110,.25); color:#4caf6e; border-radius:2px; }
+    .country-detail-panel { background:rgba(8,11,16,.9); border:1px solid rgba(200,168,75,.2); border-radius:8px; padding:1rem 1.2rem; margin-bottom:1rem; display:none; }
+    .country-detail-panel.visible { display:block; }
+    .detail-header { display:flex; align-items:center; gap:.8rem; margin-bottom:.8rem; }
+    .detail-flag-big { font-size:2.4rem; }
+    .detail-name { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.1em; color:#c8a84b; }
+    .detail-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:.5rem; }
+    .detail-item { font-family:'Share Tech Mono',monospace; font-size:.67rem; color:#6a7a8a; }
+    .detail-item strong { display:block; color:#c0c8d4; font-size:.72rem; }
+    .detail-close { float:right; background:none; border:none; color:#6a7a8a; cursor:pointer; font-size:1rem; padding:0; }
+    .server-count-badge { display:inline-block; font-family:'Share Tech Mono',monospace; font-size:.65rem; padding:.15rem .5rem; background:rgba(200,168,75,.1); border:1px solid rgba(200,168,75,.2); color:#c8a84b; border-radius:3px; margin-left:.5rem; }
+    /* News */
+    .news-search-row { display:flex; gap:.6rem; margin-bottom:1rem; flex-wrap:wrap; }
+    .news-search-input { flex:1; min-width:160px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); border-radius:4px; padding:.45rem .8rem; color:#eaeaea; font-family:'Share Tech Mono',monospace; font-size:.75rem; outline:none; transition:border-color .2s; }
+    .news-search-input:focus { border-color:rgba(200,168,75,.4); }
+    .news-search-btn { font-family:'Share Tech Mono',monospace; font-size:.72rem; padding:.45rem .9rem; background:rgba(200,168,75,.15); border:1px solid rgba(200,168,75,.35); color:#c8a84b; border-radius:4px; cursor:pointer; letter-spacing:.06em; transition:background .2s; }
+    .news-search-btn:hover { background:rgba(200,168,75,.25); }
+    .news-topic-pills { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1rem; }
+    .news-pill { font-family:'Share Tech Mono',monospace; font-size:.65rem; padding:.25rem .6rem; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09); color:#6a7a8a; border-radius:3px; cursor:pointer; transition:all .2s; }
+    .news-pill.active,.news-pill:hover { background:rgba(200,168,75,.12); border-color:rgba(200,168,75,.35); color:#c8a84b; }
+    .news-list { display:flex; flex-direction:column; gap:.65rem; }
+    .news-card { background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.07); border-left:3px solid rgba(200,168,75,.4); border-radius:0 6px 6px 0; padding:.85rem 1rem; cursor:pointer; transition:border-color .2s,background .2s; text-decoration:none; display:block; }
+    .news-card:hover { border-left-color:#c8a84b; background:rgba(200,168,75,.05); }
+    .news-card-title { font-family:'Rajdhani',sans-serif; font-weight:600; font-size:.92rem; color:#dde4ec; margin-bottom:.35rem; line-height:1.35; }
+    .news-card-meta { font-family:'Share Tech Mono',monospace; font-size:.62rem; color:#556070; display:flex; gap:.8rem; flex-wrap:wrap; }
+    .news-card-meta .source { color:#c8a84b; }
+    .news-card-desc { font-family:'Rajdhani',sans-serif; font-size:.8rem; color:#7a8a9a; margin-top:.3rem; line-height:1.4; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+    .news-results-info { font-family:'Share Tech Mono',monospace; font-size:.65rem; color:#556070; margin-bottom:.7rem; }
+    .news-rate-warning { background:rgba(200,168,75,.08); border:1px solid rgba(200,168,75,.2); border-radius:5px; padding:.6rem .8rem; font-family:'Share Tech Mono',monospace; font-size:.65rem; color:#c8a84b; margin-bottom:.8rem; }
+  </style>
 </head>
 <body>
 
-  <!-- Background layers -->
   <div class="bg-sky"></div>
   <div class="bg-fog fog-1"></div>
   <div class="bg-fog fog-2"></div>
@@ -22,14 +74,11 @@
   <div class="bg-vignette"></div>
   <div class="stars" id="stars"></div>
 
-  <!-- =====================
-       DASHBOARD SCREEN
-       ===================== -->
+  <!-- DASHBOARD -->
   <div class="screen active" id="screen-dashboard">
-
     <header class="topbar">
       <div class="topbar-left">
-        <span class="logo">Bi<span>Hunters</span></span>
+        <span class="logo">BI<span>HUNTERS</span></span>
         <span class="topbar-divider">|</span>
         <span class="topbar-label">LOBBY BROWSER</span>
       </div>
@@ -42,14 +91,16 @@
             <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
           </svg>
         </button>
+        <button class="nav-btn small" onclick="showScreen('screen-countries')">🌍 REGIONS</button>
+        <button class="nav-btn small" onclick="loadNews();showScreen('screen-news')">📰 NEWS</button>
+        <button class="nav-btn small" onclick="showScreen('screen-characters')">CHARACTERS</button>
+        <button class="nav-btn small" onclick="showScreen('screen-settings')">SETTINGS</button>
       </div>
     </header>
-
     <div class="filter-bar">
       <div class="search-wrap">
         <svg class="search-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
         <input type="text" class="search-input" placeholder="SEARCH HOST OR MAP..." id="search-input" oninput="applyFilters()" />
       </div>
@@ -61,196 +112,424 @@
       </div>
       <span class="party-count" id="party-count">0 LOBBIES</span>
     </div>
-
     <main class="party-grid-wrapper">
       <div class="party-grid" id="party-grid"></div>
       <div class="empty-state" id="empty-state" style="display:none;">
-        <span class="empty-icon">◈</span>
-        <p>NO LOBBIES FOUND</p>
-        <small>Try a different filter or refresh</small>
+        <span class="empty-icon">◈</span><p>NO LOBBIES FOUND</p><small>Try a different filter or refresh</small>
       </div>
     </main>
-
   </div>
 
-  <!-- =====================
-       PARTY DETAIL MODAL
-       ===================== -->
+  <!-- API 1: RestCountries — SERVER REGIONS -->
+  <div class="screen" id="screen-countries">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="back-btn" onclick="showScreen('screen-dashboard')">← BACK</button>
+        <span class="topbar-divider">|</span>
+        <span class="topbar-label">SERVER REGIONS</span>
+      </div>
+    </header>
+    <main class="api-screen-layout">
+      <div class="api-badge free"><span class="dot"></span>RestCountries API — FREE · No Key Required</div>
+      <p style="font-family:'Share Tech Mono',monospace;font-size:.72rem;color:#6a7a8a;margin-bottom:1rem;">
+        Browse available server regions worldwide. Click any country to see details and active lobby counts.
+        Data sourced live from <strong style="color:#8a9aaa">restcountries.com</strong>.
+      </p>
+      <div class="country-detail-panel" id="country-detail-panel">
+        <button class="detail-close" onclick="closeCountryDetail()">✕</button>
+        <div class="detail-header">
+          <span class="detail-flag-big" id="detail-flag"></span>
+          <div><div class="detail-name" id="detail-name"></div><div style="font-family:'Share Tech Mono',monospace;font-size:.65rem;color:#556070" id="detail-subregion"></div></div>
+        </div>
+        <div class="detail-grid" id="detail-grid"></div>
+      </div>
+      <div class="api-section-title">FILTER BY REGION</div>
+      <div class="region-filter" id="region-filter"></div>
+      <div class="api-section-title">AVAILABLE REGIONS <span class="server-count-badge" id="country-count">—</span></div>
+      <div id="countries-loading" class="api-loading">Fetching server regions from RestCountries API...</div>
+      <div id="countries-error"   class="api-error" style="display:none;"></div>
+      <div class="countries-grid" id="countries-grid"></div>
+    </main>
+  </div>
+
+  <!-- API 2: NewsAPI — INTEL FEED -->
+  <div class="screen" id="screen-news">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="back-btn" onclick="showScreen('screen-dashboard')">← BACK</button>
+        <span class="topbar-divider">|</span>
+        <span class="topbar-label">INTEL FEED</span>
+      </div>
+    </header>
+    <main class="api-screen-layout">
+      <div class="api-badge key"><span class="dot"></span>NewsAPI — Free Tier · 100 req/day · API Key Required</div>
+      <div class="news-rate-warning" id="news-rate-warning" style="display:none;">
+        ⚠ NewsAPI free tier requires a backend proxy for production. Showing demo data.
+        Configure your key in <code>js/api.config.js</code> or in Settings.
+      </div>
+      <div class="news-search-row">
+        <input type="text" class="news-search-input" id="news-search-input" placeholder="SEARCH GAMING NEWS..." value="survival horror game" />
+        <button class="news-search-btn" onclick="loadNews()">◈ SEARCH</button>
+      </div>
+      <div class="news-topic-pills">
+        <button class="news-pill active" onclick="setNewsTopic(this,'survival horror game')">SURVIVAL HORROR</button>
+        <button class="news-pill" onclick="setNewsTopic(this,'multiplayer game 2025')">MULTIPLAYER</button>
+        <button class="news-pill" onclick="setNewsTopic(this,'indie game release')">INDIE GAMES</button>
+        <button class="news-pill" onclick="setNewsTopic(this,'game update patch')">UPDATES</button>
+        <button class="news-pill" onclick="setNewsTopic(this,'esports gaming')">ESPORTS</button>
+      </div>
+      <div id="news-results-info" class="news-results-info"></div>
+      <div id="news-loading" class="api-loading" style="display:none;">Fetching from NewsAPI...</div>
+      <div id="news-error"   class="api-error"   style="display:none;"></div>
+      <div class="news-list" id="news-list"></div>
+    </main>
+  </div>
+
+  <!-- CHARACTERS -->
+  <div class="screen" id="screen-characters">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="back-btn" onclick="showScreen('screen-dashboard')">← BACK</button>
+        <span class="topbar-divider">|</span><span class="topbar-label">CHARACTERS</span>
+      </div>
+    </header>
+    <main class="characters-layout">
+      <div class="char-label">CHOOSE YOUR AVATAR</div>
+      <ul class="char-list">
+        <li class="char-item hunter-char" onclick="selectChar(this,'HUNTER')"><div class="char-icon">⚔</div><span>HUNTER</span><div class="char-desc">Track. Kill. Dominate.</div></li>
+        <li class="char-item" onclick="selectChar(this,'SURVIVOR 1')"><div class="char-icon">●</div><span>SURVIVOR 1</span><div class="char-desc">Quick. Silent. Evasive.</div></li>
+        <li class="char-item" onclick="selectChar(this,'SURVIVOR 2')"><div class="char-icon">●</div><span>SURVIVOR 2</span><div class="char-desc">Engineer. Builder. Fixer.</div></li>
+        <li class="char-item" onclick="selectChar(this,'SURVIVOR 3')"><div class="char-icon">●</div><span>SURVIVOR 3</span><div class="char-desc">Medic. Support. Lifeline.</div></li>
+        <li class="char-item" onclick="selectChar(this,'SURVIVOR 4')"><div class="char-icon">●</div><span>SURVIVOR 4</span><div class="char-desc">Stealth. Speed. Escape.</div></li>
+      </ul>
+      <div class="char-confirm" id="char-confirm" style="display:none;">
+        <span id="selected-char-name"></span>
+        <button class="nav-btn primary-action" onclick="showScreen('screen-dashboard')">CONFIRM</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- SETTINGS -->
+  <div class="screen" id="screen-settings">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="back-btn" onclick="showScreen('screen-dashboard')">← BACK</button>
+        <span class="topbar-divider">|</span><span class="topbar-label">SETTINGS</span>
+      </div>
+    </header>
+    <main class="settings-layout">
+      <section class="settings-group panel">
+        <h2 class="panel-title">AUDIO</h2>
+        <label class="setting-row"><span>MASTER VOLUME</span><input type="range" min="0" max="100" value="80" class="hud-slider" /><span class="slider-val">80</span></label>
+        <label class="setting-row"><span>SFX</span><input type="range" min="0" max="100" value="70" class="hud-slider" /><span class="slider-val">70</span></label>
+        <label class="setting-row"><span>MUSIC</span><input type="range" min="0" max="100" value="50" class="hud-slider" /><span class="slider-val">50</span></label>
+      </section>
+      <section class="settings-group panel">
+        <h2 class="panel-title">GRAPHICS</h2>
+        <label class="setting-row"><span>QUALITY</span><select class="hud-select"><option>LOW</option><option selected>MEDIUM</option><option>HIGH</option><option>ULTRA</option></select></label>
+        <label class="setting-row"><span>SHADOWS</span><input type="checkbox" class="hud-toggle" checked /></label>
+        <label class="setting-row"><span>FOG EFFECTS</span><input type="checkbox" class="hud-toggle" checked /></label>
+      </section>
+      <section class="settings-group panel">
+        <h2 class="panel-title">API SETTINGS</h2>
+        <div class="setting-row" style="flex-direction:column;align-items:flex-start;gap:.5rem;">
+          <span style="color:#8a9aaa;font-size:.75rem;">NewsAPI Key</span>
+          <input type="password" id="settings-news-key" placeholder="Enter NewsAPI key (optional)"
+            style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:.4rem .6rem;color:#eaeaea;font-family:'Share Tech Mono',monospace;font-size:.72rem;width:100%;outline:none;"
+            oninput="saveApiKeyFromSettings(this.value)" />
+          <small style="color:#556070;font-family:'Share Tech Mono',monospace;font-size:.62rem;">Get a free key at newsapi.org · Stored in session only, never sent to our servers</small>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL -->
   <div class="modal-overlay" id="modal-overlay" onclick="closeModal()">
     <div class="modal-box" onclick="event.stopPropagation()">
       <button class="modal-close" onclick="closeModal()">✕</button>
       <div class="modal-header">
         <div class="modal-map-badge" id="modal-map-badge"></div>
-        <div class="modal-header-text">
-          <div class="modal-title" id="modal-title"></div>
-          <div class="modal-host"  id="modal-host"></div>
-        </div>
+        <div class="modal-header-text"><div class="modal-title" id="modal-title"></div><div class="modal-host" id="modal-host"></div></div>
         <div class="modal-status-badge" id="modal-status-badge"></div>
       </div>
-      <div class="modal-slots"  id="modal-slots"></div>
-      <div class="modal-meta"   id="modal-meta"></div>
+      <div class="modal-slots" id="modal-slots"></div>
+      <div class="modal-meta"  id="modal-meta"></div>
       <button class="nav-btn primary-action full-width" id="modal-join-btn">JOIN PARTY</button>
     </div>
   </div>
 
+  <!-- API Config (keys — gitignored, loads silently if missing) -->
+  <script src="./js/api.config.js" onerror="window.API_CONFIG={NEWS_API_KEY:'',RESTCOUNTRIES_BASE_URL:'https://restcountries.com/v3.1',USE_NEWS_PROXY:false,NEWS_PROXY_URL:''}"></script>
 
-  <!-- =====================
-       SCRIPTS
-       ===================== -->
   <script>
-    /* ---------- DATA ---------- */
-    const MAPS = [
-      'ABANDONED FACILITY','INDUSTRIAL COMPLEX',
-      'PINE FOREST OUTPOST','MILITARY BASE',
-      'UNDERGROUND LAB','RIVERSIDE WAREHOUSE'
-    ];
-    const STATUS_POOL = ['waiting','waiting','waiting','in-game','in-game','full'];
+  /* ═══════════════════════════════════════════════
+     DASHBOARD
+     ═══════════════════════════════════════════════ */
+  const MAPS = ['ABANDONED FACILITY','INDUSTRIAL COMPLEX','PINE FOREST OUTPOST','MILITARY BASE','UNDERGROUND LAB','RIVERSIDE WAREHOUSE'];
+  const STATUS_POOL = ['waiting','waiting','waiting','in-game','in-game','full'];
+  const STATUS_LABELS = {waiting:'WAITING','in-game':'IN-GAME',full:'FULL'};
 
-    function randName() {
-      const p = ['Dark','Ghost','Night','Shadow','Steel','Iron','Void','Blood','Grim','Frost'];
-      const s = ['Hawk','Wolf','Shade','Reaper','Hunter','Stalker','Phantom','Raven','Scar','Echo'];
-      return p[Math.floor(Math.random()*p.length)] + s[Math.floor(Math.random()*s.length)];
+  function randName() {
+    const p=['Dark','Ghost','Night','Shadow','Steel','Iron','Void','Blood','Grim','Frost'];
+    const s=['Hawk','Wolf','Shade','Reaper','Hunter','Stalker','Phantom','Raven','Scar','Echo'];
+    return p[Math.floor(Math.random()*p.length)]+s[Math.floor(Math.random()*s.length)];
+  }
+
+  function generateParties(n=20) {
+    return Array.from({length:n},(_,i)=>{
+      const max=5, status=STATUS_POOL[Math.floor(Math.random()*STATUS_POOL.length)];
+      const current=status==='full'?max:status==='in-game'?max-Math.floor(Math.random()*2):1+Math.floor(Math.random()*(max-1));
+      return {id:'PTY'+String(1000+i).padStart(4,'0'),host:randName(),map:MAPS[Math.floor(Math.random()*MAPS.length)],status,current,max,ping:18+Math.floor(Math.random()*90),slots:Array.from({length:max},(_,j)=>j<current?randName():null)};
+    });
+  }
+
+  let allParties=generateParties(), activeFilter='all';
+
+  function renderCards(parties) {
+    const grid=document.getElementById('party-grid'),empty=document.getElementById('empty-state'),count=document.getElementById('party-count');
+    count.textContent=parties.length+' LOBBIE'+(parties.length!==1?'S':'');
+    if(!parties.length){grid.innerHTML='';empty.style.display='flex';return;}
+    empty.style.display='none';
+    grid.innerHTML=parties.map((p,i)=>{
+      const pips=p.slots.map((s,j)=>`<div class="pip ${s?'filled':''} ${j===0&&s?'pip-hunter':''}"></div>`).join('');
+      const pc=p.ping<50?'ping-good':p.ping<80?'ping-ok':'ping-bad';
+      return `<div class="party-card status-${p.status}" style="animation-delay:${i*0.035}s" onclick="openModal('${p.id}')">
+        <div class="card-top"><div class="card-status-indicator"><span class="card-dot"></span><span class="card-status-lbl">${STATUS_LABELS[p.status]}</span></div><span class="card-ping ${pc}">${p.ping}ms</span></div>
+        <div class="card-host">${p.host}</div>
+        <div class="card-map"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${p.map}</div>
+        <div class="card-footer"><div class="pips-row">${pips}</div><span class="card-count">${p.current}<span class="count-max">/${p.max}</span></span></div>
+        <div class="card-shine"></div></div>`;
+    }).join('');
+  }
+
+  function applyFilters() {
+    const q=document.getElementById('search-input').value.toLowerCase();
+    let f=allParties;
+    if(activeFilter!=='all') f=f.filter(p=>p.status===activeFilter);
+    if(q) f=f.filter(p=>p.host.toLowerCase().includes(q)||p.map.toLowerCase().includes(q));
+    renderCards(f);
+  }
+
+  function setFilter(el,filter) {
+    document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
+    el.classList.add('active'); activeFilter=filter; applyFilters();
+  }
+
+  function refreshParties() {
+    const btn=document.getElementById('refresh-btn');
+    btn.classList.add('spinning');
+    setTimeout(()=>{allParties=generateParties();applyFilters();btn.classList.remove('spinning');document.getElementById('online-count').textContent=(38+Math.floor(Math.random()*70))+' ONLINE';},700);
+  }
+
+  function openModal(id) {
+    const p=allParties.find(x=>x.id===id); if(!p) return;
+    document.getElementById('modal-map-badge').textContent=p.map.split(' ').map(w=>w[0]).join('').slice(0,2);
+    document.getElementById('modal-title').textContent=p.id+' — '+p.host;
+    document.getElementById('modal-host').textContent=p.map;
+    const sb=document.getElementById('modal-status-badge');
+    sb.textContent=STATUS_LABELS[p.status]; sb.className='modal-status-badge badge-'+p.status;
+    document.getElementById('modal-slots').innerHTML=p.slots.map((s,i)=>`<div class="modal-slot ${s?'occupied':'open'}"><span class="slot-role">${i===0?'⚔ HUNTER':'● SURVIVOR '+i}</span><span class="slot-player">${s||'— OPEN —'}</span></div>`).join('');
+    document.getElementById('modal-meta').innerHTML=`<span>PING <b>${p.ping}ms</b></span><span>PLAYERS <b>${p.current}/${p.max}</b></span>`;
+    const btn=document.getElementById('modal-join-btn');
+    btn.textContent=p.status==='full'?'LOBBY FULL':'JOIN PARTY'; btn.disabled=p.status==='full'; btn.style.opacity=p.status==='full'?'0.35':'1';
+    document.getElementById('modal-overlay').classList.add('active');
+  }
+  function closeModal(){ document.getElementById('modal-overlay').classList.remove('active'); }
+
+  function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if(id==='screen-countries'&&!countriesLoaded) loadCountries();
+  }
+
+  function selectChar(el,name) {
+    document.querySelectorAll('.char-item').forEach(c=>c.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('selected-char-name').textContent=name+' SELECTED';
+    document.getElementById('char-confirm').style.display='flex';
+  }
+
+  document.querySelectorAll('.hud-slider').forEach(s=>s.addEventListener('input',e=>e.target.nextElementSibling.textContent=e.target.value));
+
+  function saveApiKeyFromSettings(val) {
+    // Input validation: only allow alphanumeric, max 64 chars
+    const safe=val.trim().replace(/[^a-zA-Z0-9]/g,'').slice(0,64);
+    if(safe.length>0) sessionStorage.setItem('bihunters_news_key',safe);
+    else sessionStorage.removeItem('bihunters_news_key');
+  }
+
+  // Stars
+  const sc=document.getElementById('stars');
+  for(let i=0;i<130;i++){const s=document.createElement('span');s.className='star';s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*65}%;animation-delay:${(Math.random()*5).toFixed(2)}s;width:${Math.random()<.15?2:1}px;height:${Math.random()<.15?2:1}px`;sc.appendChild(s);}
+
+  /* ═══════════════════════════════════════════════
+     API 1 — RestCountries
+     GET /v3.1/all?fields=name,flags,region,subregion,population,capital,languages,timezones,cca2
+     Free, no auth required, CORS-enabled
+     ═══════════════════════════════════════════════ */
+  let countriesLoaded=false, allCountries=[], activeRegion='all';
+
+  function fakeServerCount(cca2){ const s=cca2.charCodeAt(0)+cca2.charCodeAt(1); return Math.max(1,(s*7)%12); }
+
+  async function loadCountries() {
+    const loadEl=document.getElementById('countries-loading');
+    const errEl =document.getElementById('countries-error');
+    const gridEl=document.getElementById('countries-grid');
+    loadEl.style.display='flex'; errEl.style.display='none'; gridEl.innerHTML='';
+    try {
+      const BASE=(window.API_CONFIG?.RESTCOUNTRIES_BASE_URL)||'https://restcountries.com/v3.1';
+      const res=await fetch(`${BASE}/all?fields=name,flags,region,subregion,population,capital,languages,timezones,cca2`,{signal:AbortSignal.timeout(10000)});
+      if(!res.ok) throw new Error(`RestCountries API ${res.status}`);
+      const data=await res.json();
+      // Validate + sanitise every field
+      allCountries=data
+        .filter(c=>c&&c.name&&c.cca2&&c.region)
+        .map(c=>({
+          name:      String(c.name.common||'').slice(0,80),
+          cca2:      String(c.cca2||'').slice(0,2).toUpperCase(),
+          flag:      String(c.flags?.emoji||'🏳'),
+          region:    String(c.region||'Unknown').slice(0,40),
+          subregion: String(c.subregion||'').slice(0,60),
+          population:Number(c.population||0),
+          capital:   Array.isArray(c.capital)?String(c.capital[0]||'').slice(0,60):'',
+          languages: c.languages?Object.values(c.languages).slice(0,3).join(', '):'—',
+          timezones: Array.isArray(c.timezones)?c.timezones[0]:'—',
+          servers:   fakeServerCount(String(c.cca2||'XX')),
+        }))
+        .sort((a,b)=>a.name.localeCompare(b.name));
+      countriesLoaded=true;
+      loadEl.style.display='none';
+      buildRegionFilter(); renderCountries();
+    } catch(err) {
+      loadEl.style.display='none';
+      errEl.style.display='block';
+      errEl.textContent=`⚠ Could not load regions: ${err.message}. Check your connection.`;
+      console.error('[BiHunters] RestCountries error:',err);
+    }
+  }
+
+  function buildRegionFilter() {
+    const regions=['all',...new Set(allCountries.map(c=>c.region))].sort();
+    document.getElementById('region-filter').innerHTML=regions.map(r=>`<button class="region-btn ${r==='all'?'active':''}" onclick="setRegion(this,'${r}')">${r==='all'?'ALL REGIONS':r.toUpperCase()}</button>`).join('');
+  }
+
+  function setRegion(el,region){ document.querySelectorAll('.region-btn').forEach(b=>b.classList.remove('active')); el.classList.add('active'); activeRegion=region; renderCountries(); }
+
+  function renderCountries() {
+    const f=activeRegion==='all'?allCountries:allCountries.filter(c=>c.region===activeRegion);
+    document.getElementById('country-count').textContent=`${f.length} countries`;
+    document.getElementById('countries-grid').innerHTML=f.map(c=>`
+      <div class="country-card" onclick="showCountryDetail('${c.cca2}')">
+        <div class="country-server-tag">${c.servers} SRV</div>
+        <div class="country-flag">${c.flag}</div>
+        <div class="country-name">${c.name}</div>
+        <div class="country-meta">REGION: <span>${c.region}</span><br>CAPITAL: <span>${c.capital||'—'}</span><br>SERVERS: <span>${c.servers} active</span></div>
+      </div>`).join('');
+  }
+
+  function showCountryDetail(cca2) {
+    const c=allCountries.find(x=>x.cca2===cca2); if(!c) return;
+    document.getElementById('detail-flag').textContent=c.flag;
+    document.getElementById('detail-name').textContent=c.name;
+    document.getElementById('detail-subregion').textContent=c.subregion||c.region;
+    document.getElementById('detail-grid').innerHTML=[['REGION',c.region],['CAPITAL',c.capital||'—'],['POPULATION',c.population.toLocaleString()],['LANGUAGES',c.languages],['TIMEZONE',c.timezones],['SERVERS',c.servers+' active lobbies']].map(([k,v])=>`<div class="detail-item"><strong>${k}</strong>${v}</div>`).join('');
+    const panel=document.getElementById('country-detail-panel');
+    panel.classList.add('visible'); panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+  function closeCountryDetail(){ document.getElementById('country-detail-panel').classList.remove('visible'); }
+
+
+  /* ═══════════════════════════════════════════════
+     API 2 — NewsAPI
+     GET /v2/everything?q=...&language=en&sortBy=publishedAt&pageSize=20
+     Auth: X-Api-Key header (NOT in URL — prevents key leaking in server logs)
+     Free tier: 100 req/day, localhost only
+     Production: USE_NEWS_PROXY=true → routes through backend proxy
+     ═══════════════════════════════════════════════ */
+  const NEWS_DEMO=[
+    {title:'Survival Horror Revival: Why the Genre Is Thriving in 2025',source:'GameSpot',publishedAt:'2025-02-20',description:'From indie darlings to AAA blockbusters, survival horror is having its best year in a decade.',url:'#'},
+    {title:'The Rise of Asymmetric Multiplayer: Hunters vs Survivors',source:'IGN',publishedAt:'2025-02-18',description:'A look at how games like Dead by Daylight inspired a generation of asymmetric titles.',url:'#'},
+    {title:'New Patch Overhauls Lobby Matching in Dead by Daylight',source:'PC Gamer',publishedAt:'2025-02-15',description:'Behaviour Interactive rolls out sweeping changes to party matchmaking and ping-based filtering.',url:'#'},
+    {title:'Horror Games and Mental Health: A Developer Perspective',source:'Eurogamer',publishedAt:'2025-02-12',description:'Developers discuss how they balance fear with player wellbeing in their titles.',url:'#'},
+    {title:'Top 10 Survival Horror Games to Play Right Now',source:'Kotaku',publishedAt:'2025-02-10',description:'Our editors pick the definitive list of must-play horror experiences for 2025.',url:'#'},
+    {title:'Indie Dev Spotlight: Building a Horror Game on a Budget',source:'Rock Paper Shotgun',publishedAt:'2025-02-08',description:'A solo developer explains how they created an atmospheric horror title with minimal resources.',url:'#'},
+  ];
+
+  async function loadNews() {
+    const loadEl=document.getElementById('news-loading'),errEl=document.getElementById('news-error');
+    const listEl=document.getElementById('news-list'),infoEl=document.getElementById('news-results-info');
+    const warnEl=document.getElementById('news-rate-warning');
+    const rawQ=document.getElementById('news-search-input').value.trim()||'survival horror game';
+    // Input validation — sanitise query
+    const safeQ=rawQ.replace(/[^a-zA-Z0-9 \-+'"]/g,'').slice(0,100);
+    loadEl.style.display='flex'; errEl.style.display='none'; listEl.innerHTML=''; infoEl.textContent='';
+
+    const key=(window.API_CONFIG?.NEWS_API_KEY&&API_CONFIG.NEWS_API_KEY!=='YOUR_NEWSAPI_KEY_HERE')
+      ?API_CONFIG.NEWS_API_KEY:(sessionStorage.getItem('bihunters_news_key')||'');
+
+    if(!key){
+      loadEl.style.display='none'; warnEl.style.display='block';
+      infoEl.textContent='Demo mode — add your NewsAPI key in Settings for live results';
+      renderNews(NEWS_DEMO); return;
     }
 
-    function generateParties(n = 20) {
-      return Array.from({length: n}, (_, i) => {
-        const max = 5;
-        const status = STATUS_POOL[Math.floor(Math.random()*STATUS_POOL.length)];
-        const current = status === 'full' ? max
-          : status === 'in-game' ? max - Math.floor(Math.random()*2)
-          : 1 + Math.floor(Math.random()*(max-1));
-        return {
-          id: 'PTY' + String(1000+i).padStart(4,'0'),
-          host: randName(),
-          map: MAPS[Math.floor(Math.random()*MAPS.length)],
-          status, current, max,
-          ping: 18 + Math.floor(Math.random()*90),
-          slots: Array.from({length: max}, (_, j) => j < current ? randName() : null)
-        };
-      });
+    try {
+      let articles;
+      if(window.API_CONFIG?.USE_NEWS_PROXY&&API_CONFIG.NEWS_PROXY_URL){
+        // Production proxy path
+        const res=await fetch(`${API_CONFIG.NEWS_PROXY_URL}?q=${encodeURIComponent(safeQ)}`,{signal:AbortSignal.timeout(8000)});
+        if(!res.ok) throw new Error(`Proxy error ${res.status}`);
+        articles=(await res.json()).articles||[];
+      } else {
+        // Dev: key in header (not URL) to avoid appearing in logs
+        const url=`https://newsapi.org/v2/everything?q=${encodeURIComponent(safeQ)}&language=en&sortBy=publishedAt&pageSize=20`;
+        const res=await fetch(url,{headers:{'X-Api-Key':key},signal:AbortSignal.timeout(8000)});
+        if(res.status===429) throw new Error('Rate limit reached (100 req/day). Try again tomorrow.');
+        if(res.status===401) throw new Error('Invalid API key. Check your key at newsapi.org.');
+        if(!res.ok) throw new Error(`NewsAPI ${res.status}`);
+        const d=await res.json();
+        if(d.status==='error') throw new Error(d.message);
+        articles=d.articles||[];
+      }
+      // Validate response data
+      articles=articles
+        .filter(a=>a&&a.title&&a.title!=='[Removed]')
+        .map(a=>({title:String(a.title||'').slice(0,200),source:String(a.source?.name||'Unknown').slice(0,80),publishedAt:String(a.publishedAt||'').slice(0,10),description:String(a.description||'').slice(0,300),url:String(a.url||'#').slice(0,500)}));
+      loadEl.style.display='none'; warnEl.style.display='none';
+      infoEl.textContent=`${articles.length} articles for "${safeQ}"`;
+      renderNews(articles.length?articles:NEWS_DEMO);
+    } catch(err) {
+      loadEl.style.display='none';
+      errEl.textContent=err.name==='TimeoutError'?'⚠ Request timed out.': `⚠ ${err.message}`;
+      errEl.style.display='block'; infoEl.textContent='Showing demo articles.';
+      renderNews(NEWS_DEMO);
+      console.error('[BiHunters] NewsAPI error:',err);
     }
+  }
 
-    let allParties = generateParties();
-    let activeFilter = 'all';
+  function renderNews(articles) {
+    document.getElementById('news-list').innerHTML=articles.map(a=>`
+      <a class="news-card" href="${a.url}" target="_blank" rel="noopener noreferrer">
+        <div class="news-card-title">${a.title}</div>
+        <div class="news-card-meta"><span class="source">${a.source}</span><span>${a.publishedAt?a.publishedAt.slice(0,10):''}</span></div>
+        ${a.description?`<div class="news-card-desc">${a.description}</div>`:''}
+      </a>`).join('');
+  }
 
-    /* ---------- RENDER ---------- */
-    const STATUS_LABELS = {waiting:'WAITING','in-game':'IN-GAME',full:'FULL'};
+  function setNewsTopic(el,topic) {
+    document.querySelectorAll('.news-pill').forEach(p=>p.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('news-search-input').value=topic;
+    loadNews();
+  }
 
-    function renderCards(parties) {
-      const grid  = document.getElementById('party-grid');
-      const empty = document.getElementById('empty-state');
-      const count = document.getElementById('party-count');
-      count.textContent = parties.length + ' LOBBIE' + (parties.length !== 1 ? 'S' : '');
-      if (!parties.length) { grid.innerHTML = ''; empty.style.display = 'flex'; return; }
-      empty.style.display = 'none';
-      grid.innerHTML = parties.map((p, i) => {
-        const pips = p.slots.map((s, j) =>
-          `<div class="pip ${s ? 'filled' : ''} ${j===0 && s ? 'pip-hunter' : ''}"></div>`
-        ).join('');
-        const pingClass = p.ping < 50 ? 'ping-good' : p.ping < 80 ? 'ping-ok' : 'ping-bad';
-        return `
-        <div class="party-card status-${p.status}" style="animation-delay:${i*0.035}s" onclick="openModal('${p.id}')">
-          <div class="card-top">
-            <div class="card-status-indicator">
-              <span class="card-dot"></span>
-              <span class="card-status-lbl">${STATUS_LABELS[p.status]}</span>
-            </div>
-            <span class="card-ping ${pingClass}">${p.ping}ms</span>
-          </div>
-          <div class="card-host">${p.host}</div>
-          <div class="card-map">
-            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-            </svg>
-            ${p.map}
-          </div>
-          <div class="card-footer">
-            <div class="pips-row">${pips}</div>
-            <span class="card-count">${p.current}<span class="count-max">/${p.max}</span></span>
-          </div>
-          <div class="card-shine"></div>
-        </div>`;
-      }).join('');
-    }
-
-    function applyFilters() {
-      const q = document.getElementById('search-input').value.toLowerCase();
-      let f = allParties;
-      if (activeFilter !== 'all') f = f.filter(p => p.status === activeFilter);
-      if (q) f = f.filter(p => p.host.toLowerCase().includes(q) || p.map.toLowerCase().includes(q));
-      renderCards(f);
-    }
-
-    function setFilter(el, filter) {
-      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-      el.classList.add('active');
-      activeFilter = filter;
-      applyFilters();
-    }
-
-    function refreshParties() {
-      const btn = document.getElementById('refresh-btn');
-      btn.classList.add('spinning');
-      setTimeout(() => {
-        allParties = generateParties();
-        applyFilters();
-        btn.classList.remove('spinning');
-        document.getElementById('online-count').textContent =
-          (38 + Math.floor(Math.random()*70)) + ' ONLINE';
-      }, 700);
-    }
-
-    /* ---------- MODAL ---------- */
-    function openModal(id) {
-      const p = allParties.find(x => x.id === id);
-      if (!p) return;
-      document.getElementById('modal-map-badge').textContent =
-        p.map.split(' ').map(w=>w[0]).join('').slice(0,2);
-      document.getElementById('modal-title').textContent = p.id + ' — ' + p.host;
-      document.getElementById('modal-host').textContent  = p.map;
-      const sb = document.getElementById('modal-status-badge');
-      sb.textContent  = STATUS_LABELS[p.status];
-      sb.className    = 'modal-status-badge badge-' + p.status;
-      document.getElementById('modal-slots').innerHTML = p.slots.map((s, i) => `
-        <div class="modal-slot ${s ? 'occupied' : 'open'}">
-          <span class="slot-role">${i === 0 ? '⚔ HUNTER' : '● SURVIVOR ' + i}</span>
-          <span class="slot-player">${s || '— OPEN —'}</span>
-        </div>`).join('');
-      document.getElementById('modal-meta').innerHTML = `
-        <span>PING <b>${p.ping}ms</b></span>
-        <span>PLAYERS <b>${p.current}/${p.max}</b></span>`;
-      const btn = document.getElementById('modal-join-btn');
-      btn.textContent = p.status === 'full' ? 'LOBBY FULL' : 'JOIN PARTY';
-      btn.disabled    = p.status === 'full';
-      btn.style.opacity = p.status === 'full' ? '0.35' : '1';
-      document.getElementById('modal-overlay').classList.add('active');
-    }
-
-    function closeModal() {
-      document.getElementById('modal-overlay').classList.remove('active');
-    }
-
-    /* ---------- NAVIGATION ---------- */
-    function showScreen(id) {
-      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-
-    /* ---------- STARS ---------- */
-    const sc = document.getElementById('stars');
-    for (let i = 0; i < 130; i++) {
-      const s = document.createElement('span');
-      s.className = 'star';
-      s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*65}%;animation-delay:${(Math.random()*5).toFixed(2)}s;width:${Math.random()<.15?2:1}px;height:${Math.random()<.15?2:1}px`;
-      sc.appendChild(s);
-    }
-
-    /* ---------- INIT ---------- */
-    document.getElementById('online-count').textContent = (38 + Math.floor(Math.random()*70)) + ' ONLINE';
-    renderCards(allParties);
+  /* INIT */
+  document.getElementById('online-count').textContent=(38+Math.floor(Math.random()*70))+' ONLINE';
+  renderCards(allParties);
+  const savedKey=sessionStorage.getItem('bihunters_news_key');
+  if(savedKey) document.getElementById('settings-news-key').value=savedKey;
   </script>
 
-  <script src="/js/app.js"></script>
-
+  <script src="./js/app.js"></script>
 </body>
 </html>

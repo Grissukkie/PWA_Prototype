@@ -1,3 +1,8 @@
+/* ===============================
+   BiHunters PWA — style.css
+   Dark Survival Horror Dashboard
+   =============================== */
+
 /* --- Variables --- */
 :root {
   --bg-deep:    #060709;
@@ -453,6 +458,90 @@ html, body {
   margin-bottom: 1.2rem;
 }
 .modal-meta b { color: var(--text-2); }
+
+/* ================================
+   CHARACTERS
+   ================================ */
+.characters-layout {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: flex-start; padding: 2rem 3rem; gap: 1rem; overflow-y: auto;
+}
+.char-label {
+  font-family: var(--font-mono); font-size: .62rem;
+  letter-spacing: .24em; color: var(--text-3);
+}
+.char-list { list-style: none; display: flex; flex-direction: column; gap: .4rem; width: 100%; max-width: 480px; }
+.char-item {
+  display: flex; align-items: center; gap: 1.1rem;
+  padding: .95rem 1.3rem;
+  border: 1px solid var(--border); cursor: pointer; position: relative; overflow: hidden;
+  font-family: var(--font-ui); font-size: 1.05rem; font-weight: 600; letter-spacing: .15em;
+  color: var(--text-2);
+  transition: border-color var(--ease), color var(--ease), background var(--ease);
+}
+.char-item::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 2px; background: transparent; transition: background var(--ease);
+}
+.char-item:hover { border-color: rgba(100,120,150,.38); color: var(--text-1); background: rgba(255,255,255,.02); }
+.char-item:hover::before { background: var(--text-2); }
+.char-item.selected { border-color: var(--border-hi); color: var(--gold); background: var(--gold-dim); }
+.char-item.selected::before { background: var(--gold); }
+.hunter-char { color: #b04040; }
+.hunter-char:hover, .hunter-char.selected { color: var(--red); border-color: rgba(192,56,56,.45); background: var(--red-dim); }
+.hunter-char:hover::before, .hunter-char.selected::before { background: var(--red); }
+.char-icon {
+  width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
+  border: 1px solid currentColor; opacity: .6; flex-shrink: 0; font-size: .95rem;
+}
+.char-desc { margin-left: auto; font-family: var(--font-mono); font-size: .57rem; letter-spacing: .08em; color: var(--text-3); font-weight: 400; }
+.char-confirm { display: flex; align-items: center; gap: 1.5rem; padding-top: .5rem; border-top: 1px solid var(--border); width: 100%; max-width: 480px; }
+#selected-char-name { font-family: var(--font-mono); font-size: .65rem; letter-spacing: .15em; color: var(--gold); }
+
+/* ================================
+   SETTINGS
+   ================================ */
+.settings-layout {
+  flex: 1; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 1.5rem; padding: 2rem; align-content: start; overflow-y: auto;
+}
+.settings-group { display: flex; flex-direction: column; gap: 0; }
+.panel { background: var(--bg-panel); border: 1px solid var(--border); backdrop-filter: blur(12px); padding: 1.4rem; }
+.panel-title {
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .22em;
+  color: var(--gold); margin-bottom: 1.1rem; padding-bottom: .55rem; border-bottom: 1px solid var(--border);
+}
+.setting-row {
+  display: flex; align-items: center; gap: 1rem; padding: .75rem 0;
+  border-bottom: 1px solid var(--border); cursor: pointer;
+  font-family: var(--font-mono); font-size: .67rem; letter-spacing: .1em; color: var(--text-2);
+}
+.setting-row:last-child { border-bottom: none; }
+.setting-row span:first-child { flex: 1; }
+.hud-slider {
+  width: 96px; -webkit-appearance: none; appearance: none;
+  height: 2px; background: rgba(100,120,140,.28); outline: none; cursor: pointer;
+}
+.hud-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 11px; height: 11px; background: var(--gold); cursor: pointer; border: none; }
+.hud-slider::-moz-range-thumb { width: 11px; height: 11px; background: var(--gold); cursor: pointer; border: none; border-radius: 0; }
+.slider-val { min-width: 2ch; text-align: right; color: var(--gold); font-size: .62rem; }
+.hud-select {
+  background: rgba(10,13,18,.8); border: 1px solid var(--border);
+  color: var(--text-1); font-family: var(--font-mono); font-size: .62rem;
+  letter-spacing: .08em; padding: .28rem .55rem; cursor: pointer; outline: none;
+  appearance: none; -webkit-appearance: none;
+}
+.hud-toggle {
+  width: 17px; height: 17px; border: 1px solid var(--border);
+  background: transparent; appearance: none; -webkit-appearance: none;
+  cursor: pointer; position: relative; flex-shrink: 0;
+}
+.hud-toggle:checked { background: var(--gold); border-color: var(--gold); }
+.hud-toggle:checked::after {
+  content: '✓'; position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .6rem; color: var(--bg-deep); font-weight: 900;
+}
 
 /* ================================
    SCROLLBAR
