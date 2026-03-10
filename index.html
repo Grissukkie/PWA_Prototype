@@ -67,6 +67,132 @@
 </head>
 <body>
 
+  <!-- =====================
+       SPLASH SCREEN
+       Shown on every app launch. Fades out automatically after 2.2s
+       or immediately once the main content is ready.
+       ===================== -->
+  <div id="splash-screen" aria-hidden="true">
+    <div class="splash-bg"></div>
+    <div class="splash-fog splash-fog-1"></div>
+    <div class="splash-fog splash-fog-2"></div>
+    <div class="splash-content">
+      <div class="splash-logo-wrap">
+        <div class="splash-icon">◈</div>
+        <div class="splash-title">BI<span>HUNTERS</span></div>
+        <div class="splash-tagline">SURVIVE · ESCAPE · HUNT</div>
+      </div>
+      <div class="splash-loader">
+        <div class="splash-bar"></div>
+      </div>
+      <div class="splash-version">v1.0 · PWA</div>
+    </div>
+  </div>
+
+  <style>
+    /* ── Splash screen ──────────────────────────────────── */
+    #splash-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #060709;
+      transition: opacity .5s ease, visibility .5s ease;
+    }
+    #splash-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .splash-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(200,168,75,.07) 0%, transparent 70%);
+    }
+    .splash-fog {
+      position: absolute;
+      width: 160%;
+      height: 180px;
+      bottom: 0;
+      left: -30%;
+      background: linear-gradient(to top, rgba(6,7,9,.95) 0%, transparent 100%);
+      border-radius: 50%;
+      animation: splash-drift 6s ease-in-out infinite alternate;
+    }
+    .splash-fog-2 {
+      height: 120px;
+      animation-duration: 8s;
+      animation-direction: alternate-reverse;
+      opacity: .6;
+    }
+    @keyframes splash-drift {
+      from { transform: translateX(-2%); }
+      to   { transform: translateX(2%);  }
+    }
+    .splash-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.4rem;
+    }
+    .splash-logo-wrap { text-align: center; }
+    .splash-icon {
+      font-size: 3.2rem;
+      color: #c8a84b;
+      line-height: 1;
+      margin-bottom: .6rem;
+      animation: splash-pulse 2s ease-in-out infinite;
+    }
+    @keyframes splash-pulse {
+      0%, 100% { opacity: 1;   transform: scale(1);    }
+      50%       { opacity: .65; transform: scale(.94);  }
+    }
+    .splash-title {
+      font-family: 'Bebas Neue', 'Arial Narrow', sans-serif;
+      font-size: clamp(3rem, 10vw, 5.5rem);
+      letter-spacing: .18em;
+      color: #eaeaea;
+      line-height: 1;
+    }
+    .splash-title span { color: #c8a84b; }
+    .splash-tagline {
+      font-family: 'Share Tech Mono', 'Courier New', monospace;
+      font-size: clamp(.55rem, 2vw, .75rem);
+      letter-spacing: .35em;
+      color: #4a5560;
+      margin-top: .5rem;
+    }
+    .splash-loader {
+      width: min(280px, 60vw);
+      height: 2px;
+      background: rgba(255,255,255,.06);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .splash-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #c8a84b, #e6c96d);
+      border-radius: 2px;
+      animation: splash-load 1.8s cubic-bezier(.4,0,.2,1) forwards;
+    }
+    @keyframes splash-load {
+      0%   { width:  0%; }
+      60%  { width: 75%; }
+      85%  { width: 90%; }
+      100% { width: 100%; }
+    }
+    .splash-version {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .6rem;
+      letter-spacing: .2em;
+      color: #2a3340;
+    }
+  </style>
+
   <div class="bg-sky"></div>
   <div class="bg-fog fog-1"></div>
   <div class="bg-fog fog-2"></div>
@@ -521,6 +647,32 @@
     el.classList.add('active');
     document.getElementById('news-search-input').value=topic;
     loadNews();
+  }
+
+  /* ── SPLASH SCREEN DISMISS ──────────────────────────────
+     Hide the splash once the app shell is ready.
+     Uses a minimum display time (1.8s) so the animation
+     completes, then fades out gracefully.                  */
+  function dismissSplash() {
+    const splash = document.getElementById('splash-screen');
+    if (!splash) return;
+    splash.classList.add('hidden');
+    // Remove from DOM after transition to free memory
+    splash.addEventListener('transitionend', () => splash.remove(), { once: true });
+  }
+  // Minimum 1 900 ms so the loading bar animation finishes
+  const SPLASH_MIN_MS = 1900;
+  const splashStart   = performance.now();
+  function scheduleSplash() {
+    const elapsed  = performance.now() - splashStart;
+    const remaining = Math.max(0, SPLASH_MIN_MS - elapsed);
+    setTimeout(dismissSplash, remaining);
+  }
+  // Dismiss as soon as fonts + DOM are fully loaded
+  if (document.readyState === 'complete') {
+    scheduleSplash();
+  } else {
+    window.addEventListener('load', scheduleSplash, { once: true });
   }
 
   /* INIT */
