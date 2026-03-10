@@ -1,10 +1,19 @@
-# API Keys — NEVER commit real keys
-.env
+# ── API Keys — NEVER commit real keys ─────────────────────
+js/api.config.js
 
-# OS files
+# ── Node.js ────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+
+# ── OS files ───────────────────────────────────────────────
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Editor
+# ── Editor ─────────────────────────────────────────────────
 .vscode/
+.idea/
 *.code-workspace
+
+# ── Logs ───────────────────────────────────────────────────
+*.log
